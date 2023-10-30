@@ -1,0 +1,50 @@
+<form #addForm="ngForm" (ngSubmit)="add(addForm)">
+    <div class="form-group">
+      <label for="fn">FirstName</label>
+      <input type="text" class="form-control" pattern="[a-zA-Z]*" id="fn" name="fn" ngModel required minlength="3" #fn="ngModel"  placeholder="Enter FirstName">
+      <small class="text text-danger" *ngIf="fn?.errors?.['required'] && fn.touched">FirstName is required</small>
+      <small class="text text-danger" *ngIf="fn?.errors?.['pattern'] && fn.touched">name should be charachter</small>
+    </div>
+    <div class="form-group">
+      <label for="ln">LastName</label>
+      <input type="text" class="form-control" pattern="[a-zA-Z]*" id="ln" name="ln" ngModel required minlength="3" #ln="ngModel" placeholder="LastName">
+      <small class="text text-danger" *ngIf="ln?.errors?.['required'] && ln.touched">LastName is required</small>
+      <small class="text text-danger" *ngIf="ln?.errors?.['pattern'] && ln.touched">last name should be charachter</small>
+    </div>
+
+    <div class="form-group">
+        <label for="ln">BirthDate</label>
+        <input type="date" class="form-control"  id="ln" name="ln" ngModel required minlength="3" #bn="ngModel" placeholder="birthdate">
+        <small class="text text-danger" *ngIf="bn?.errors?.['required'] && bn.touched">LastName is required</small>
+        <small class="text text-danger" *ngIf="bn?.errors?.['pattern'] && bn.touched"></small>
+      </div>
+      <label for="ln">email</label>
+        <input type="email" class="form-control" pattern="^[a-zA-Z0-9._-]+@gmail.com" id="en" name="en" ngModel required minlength="3" #en="ngModel" placeholder="email">
+        <div class="form-group">
+        <small class="text text-danger" *ngIf="en?.errors?.['required'] && en.touched">email is required</small>
+        <small class="text text-danger" *ngIf="en?.errors?.['pattern'] && en.touched">@ is required</small>
+      </div>
+      <div class="form-group">
+        <label for="ln">password</label>
+        <input type="password" class="form-control" pattern="^[a-zA-Z0-9]{8,}?" id="pn"  name="pn" ngModel required minlength="3" #pn="ngModel" placeholder="password">
+        <small class="text text-danger" *ngIf="pn?.errors?.['required'] && pn.touched">LastName is required</small>
+        <small class="text text-danger" *ngIf="pn?.errors?.['pattern'] && pn.touched">password should be min 8 charachter</small>
+      </div>
+      <div class="form-group">
+        <label for="ln">profession</label>
+        <input type="text" class="form-control"  id="prn" name="prn" ngModel required minlength="3" #prn="ngModel" placeholder="profession">
+        <small class="text text-danger" *ngIf="prn?.errors?.['required'] && prn.touched">LastName is required</small>
+        <small class="text text-danger" *ngIf="prn?.errors?.['pattern'] && prn.touched"></small>
+      </div>
+      <div class="form-group">
+        <label for="ln">customer category</label>
+        <input type="text" class="form-control"  id="cn" name="cn" ngModel required minlength="3" #cn="ngModel" placeholder="customer">
+        <small class="text text-danger" *ngIf="cn?.errors?.['required'] && cn.touched">LastName is required</small>
+        <small class="text text-danger" *ngIf="cn?.errors?.['pattern'] && cn.touched"></small>
+      </div>
+
+
+    
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid" (click)="add(addForm)">Submit</button>
+  </form>
+
